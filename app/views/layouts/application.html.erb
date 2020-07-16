@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AttendanceApp</title>
+    <!--full_titleヘルパーメソッド-->
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +10,7 @@
   </head>
 
   <body>
+    <!--各ページの内容部分をレイアウトに挿入されるためのものです-->
     <%= yield %>
   </body>
 </html>
