@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'static_pages#top' # static_pages/topというURLに対するGETリクエストをtopアクションと結びつける
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'static_pages#top'
+  
+  get '/signup', to: 'users#new' # signup_path,signup_urlヘルパーでusers#newのコントローラの処理を行って/signupのURLをGETする
 end

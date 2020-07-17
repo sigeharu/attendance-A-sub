@@ -7,10 +7,15 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--HTML shimがこの1行で収まる。パーシャル-->
+    <%= render 'layouts/shim' %> <!--renderヘルパー layouts/shimのファイルを探して、その内容を評価して結果をビューに挿入します。-->
   </head>
 
   <body>
-    <!--各ページの内容部分をレイアウトに挿入されるためのものです-->
-    <%= yield %>
+    <!--headerの内容がこの1行で収まる。パーシャル-->
+    <%= render 'layouts/header' %> <!--renderヘルパー layouts/headerのファイルを探して、その内容を評価して結果をビューに挿入します。-->
+    <div class="container">
+      <%= yield%>
+    </div>
   </body>
 </html>
