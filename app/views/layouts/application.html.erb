@@ -15,7 +15,12 @@
     <!--headerの内容がこの1行で収まる。パーシャル-->
     <%= render 'layouts/header' %> <!--renderヘルパー layouts/headerのファイルを探して、その内容を評価して結果をビューに挿入します。-->
     <div class="container">
-      <%= yield%>
+      <%= flash.each do |message_type, msg| %> <!--flashを繰り返し処理する。二種類のブロック変数を繰り返す-->
+        <div class="alert alert-<%= message_type %>"><%= msg %></div> <!--ハッシュのキー(<%= message_type %>)がsuccessだった場合、動的にクラスを指定する-->
+      <% end %>
+      <%= yield %>
+      <!--環境開発(development?)のみをデバッグ情報が表示されるようにする-->
+      <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>
