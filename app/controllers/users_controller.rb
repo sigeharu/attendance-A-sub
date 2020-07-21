@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params) # Userモデルのnewにuser_paramsの値を受け取り、@userに代入する
     if @user.save #新しく挿入されたインスタンス係数@userを保存する
+      log_in @user # 保存成功後、ログインします。
       flash[:success] = '新規作成に成功しました。'
       redirect_to @user # railsではredirect_to user_url(@user)をredirect_to @userに簡略化できる
     else
