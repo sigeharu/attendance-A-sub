@@ -7,5 +7,10 @@ Rails.application.routes.draw do
   post    '/login', to: 'sessions#create'
   delete  '/logout', to: 'sessions#destroy'
   
-  resources :users # 基本的にこの一行でusers_controllerをカバーできる
+  resources :users do # 基本的にこの一行でusers_controllerをカバーできる
+    member do
+      get 'edit_basic_info'
+      patch 'update_basic_info'
+    end
+  end
 end

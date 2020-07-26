@@ -3,13 +3,13 @@
   <table class="table table-bordered table-condensed user-table">
     <tr>
       <td>時間管理表</td>
-      <td>指定勤務時間</td>
-      <td>勤務時間</td>
+      <td>指定勤務時間<%= format_basic_info(@user.work_time) %></td>
+      <td>基本時間<%= format_basic_info(@user.basic_time) %></td>
       <td>月初日</td>
     </tr>
     
     <tr>
-      <td>所属</td>
+      <td>所属:<%= @user.department.present? ? @user.department : "未所属" %></td> <!--departmentの値が存在する場合はその値を、存在しない場合は「未所属」-->
       <td>名前:<%= @user.name %></td> <!--ユーザーidの中の名前-->
       <td>出勤日数</td>
       <td>月末日</td>
